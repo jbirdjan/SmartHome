@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="jqm/jquery.mobile-min.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+        <script src="intelxdk.js"></script>
+        <script src="cordova.js"></script>
+        <script type="text/javascript">
+            var onDeviceReady = function () {
+                //hide splash screen
+                navigator.splashscreen.hide();
+            };
+            document.addEventListener("deviceready", onDeviceReady, false);
+        </script>
+        <script type="application/javascript" src="js/jquery.min.js"></script>
+        <script type="application/javascript" src="jqm/jquery.mobile-min.js" data-ver="0"></script>
+        <script src="js/app.js"></script>
+    </head>
+
+    <body>
+        <!-- content goes here-->v
+        <div class="uwrap">
+            <div class="upage ui-page-theme-a" id="mainpage" data-role="page" data-theme="b">
+                <div class="upage-outer">
+                    <div data-role="header" data-position="fixed" class="container-group inner-element uib_w_9" data-uib="jquery_mobile/header" data-ver="0" id="headline" data-theme="a">
+                        <h1>Cy-Curity</h1>
+                        <div class="widget-container wrapping-col single-centered"></div>
+                        <div class="widget-container content-area horiz-area wrapping-col left"></div>
+                        <div class="widget-container content-area horiz-area wrapping-col right"><a href="#new_device_popup" data-rel="popup" class="widget uib_w_5" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="new_device" data-transition="flip" data-position-to="window" data-icon="plus" data-direction="reverse"
+                            data-theme="b">add</a>
+                        </div>
+                    </div>
+                    <div class="upage-content" id="mainsub">
+                        <div class="grid grid-pad urow uib_row_1 row-height-1" data-uib="layout/row" data-ver="0">
+                            <div class="col uib_col_1 col-0_12-12" data-uib="layout/col" data-ver="0">
+                                <div class="widget-container content-area vertical-col center">
+                                    <div class="widget uib_w_1 ui-content d-margins" data-uib="jquery_mobile/listview" data-ver="0">
+                                        <ul data-role="listview" id="device_list" data-filter="true" data-filter-placeholder="Search by categories ..." data-inset="true" data-theme="a" data-filter-theme="a">
+                                        </ul>
+                                    </div>
+                                    <span class="uib_shim"></span>
+                                </div>
+                            </div>
+                            <span class="uib_shim"></span>
+                        </div>
+                    </div>
+                    <div id="uib_page_1" class="upage-content hidden">
+                    </div>
+                    <div id="lock_page_popup" data-role="popup" class="popup_class outer-element ui-content uib_w_24 padded-col uib-jqm-popup" data-uib="jquery_mobile/popup" data-ver="0" data-theme="a" data-overlay-theme="a">
+                        <div data-role="header" class="ui-corner-top">
+                            <h1>Lock</h1>
+                        </div><a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" data-theme="a" class="ui-btn-right">Close</a>
+
+                        <div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
+                            <div class="col uib_col_3 col-0" data-uib="layout/col" data-ver="0">
+                                <div class="widget-container content-area vertical-col">
+                                    <div class="table-thing ui-overlay-shadowwith-label widget uib_w_10 d-margins" data-uib="jquery_mobile/textarea" data-ver="0">
+                                        <label class="narrow-control" for="device_functions"></label>
+                                        <textarea readonly="" class="wide-control" rows="6" wrap="soft" id="device_text">** Secured **</textarea>
+                                    </div>
+                                    <img id="device_image">
+                                    <span class="uib_shim"></span>
+                                    <div class="table-thing ui-overlay-shadowwith-label widget uib_w_10 d-margins" data-uib="jquery_mobile/button" data-ver="0">
+                                        <label class="narrow-control" for="device_functions"></label>
+                                        <a class="widget uib_w_11 d-margins width" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="lock_door_button" data-icon="eye" data-theme="a">Lock</a><span class="uib_shim"></span>
+                                    </div>
+                                    <div class="table-thing ui-overlay-shadowwith-label widget uib_w_10 d-margins" data-uib="jquery_mobile/button" data-ver="0">
+                                        <label class="narrow-control" for="device_functions"></label>
+                                        <a class="widget uib_w_11 d-margins width" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="unlock_door_button" data-icon="eye" data-theme="a">Unlock</a><span class="uib_shim"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="uib_shim"></span>
+                        </div>
+                        <div class="grid grid-pad urow uib_row_4 row-height-4" data-uib="layout/row" data-ver="0">
+                            <div class="col uib_col_12 col-0" data-uib="layout/col" data-ver="0">
+                                <div class="widget-container content-area vertical-col">
+                                    <a class="widget uib_w_11 d-margins width" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="show_device_button" data-icon="eye" data-theme="a">Show</a><span class="uib_shim"></span>
+                                </div>
+                            </div>
+                            <span class="uib_shim"></span>
+                        </div>
+                    </div>
+                    <div id="blinds_page_popup" data-role="popup" class="popup_class outer-element ui-content uib_w_24 padded-col uib-jqm-popup" data-uib="jquery_mobile/popup" data-ver="0" data-theme="a" data-overlay-theme="a">
+                        <div data-role="header" class="ui-corner-top">
+                            <h1>Blinds</h1>
+                        </div><a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" data-theme="a" class="ui-btn-right">Close</a>
+
+                        <div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
+                            <div class="col uib_col_3 col-0" data-uib="layout/col" data-ver="0">
+                                <div class="widget-container content-area vertical-col">
+                                    <div class="table-thing ui-overlay-shadowwith-label widget uib_w_10 d-margins" data-uib="jquery_mobile/textarea" data-ver="0">
+                                        <label class="narrow-control" for="device_text"></label>
+                                        <textarea readonly="" class="wide-control" rows="6" wrap="soft" id="device_text">** Secured **</textarea>
+                                    </div>
+                                    <img id="device_image">
+
+                                    <span class="uib_shim"></span> 
+                                </div>
+                            </div>
+                            <span class="uib_shim"></span>
+                        </div>
+                        <div class="grid grid-pad urow uib_row_4 row-height-4" data-uib="layout/row" data-ver="0">
+                            <div class="col uib_col_12 col-0" data-uib="layout/col" data-ver="0">
+                                <div class="widget-container content-area vertical-col">
+                                    <a class="widget uib_w_11 d-margins width" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="show_device_button" data-icon="eye" data-theme="a">Show</a><span class="uib_shim"></span>
+                                </div>
+                            </div>
+                            <span class="uib_shim"></span>
+                        </div>
+                    </div>
+                    <div id="new_device_popup" data-role="popup" class="popup_class outer-element uib_w_24 padded-col uib-jqm-popup ui-content" data-uib="jquery_mobile/popup" data-ver="0" data-theme="a" data-overlay-theme="b"><a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" data-theme="a" class="ui-btn-right">Close</a>
+
+                        <div class="grid grid-pad urow uib_row_2 row-height-2" data-uib="layout/row" data-ver="0">
+                            <div class="col uib_col_2 col-0_12-12" data-uib="layout/col" data-ver="0">
+                                <div class="widget-container content-area vertical-col">
+                                    <div data-role="header" class="container-group inner-element uib_w_9" data-uib="jquery_mobile/header" data-ver="0" data-theme="b">
+                                        <h1>Create New Device</h1>
+                                        <div class="widget-container wrapping-col single-centered"></div>
+                                        <div class="widget-container content-area horiz-area wrapping-col left"></div>
+                                        <div class="widget-container content-area horiz-area wrapping-col right"></div>
+                                    </div>
+                                    <div class="table-thing with-label widget uib_w_19 d-margins" data-uib="jquery_mobile/input" data-ver="0">
+                                        <label class="narrow-control label-top-left" for="new_device_name">Device Name</label>
+                                        <input class="wide-control" data-clear-btn="true" type="text" wrap="soft" id="new_device_name" placeholder="Required field">
+                                    </div>
+                                    <div class="table-thing with-label widget uib_w_6 d-margins" data-uib="jquery_mobile/input" data-ver="0">
+                                        <label class="narrow-control label-top-left" for="new_device_ip">Ip Address</label>
+                                        <textarea class="wide-control" data-autogrow="true" rows="5" wrap="soft" id="new_device_ip" placeholder="xxx.xxx.xxx.xxx (Required  field)"></textarea>
+                                    </div>
+                                    <div class="table-thing with-label widget uib_w_19 d-margins" data-uib="jquery_mobile/select" data-ver="0">
+                                        <label class="narrow-control label-top-left" for="new_device_type">Device Type</label>
+                                        <div data-role="fieldcontrol" class="wide-control">
+                                            <select id="new_device_type">
+                                                <option value="0" id="default">Select Device Type</option>
+                                                <option value="1" id="lock">Lock</option>
+                                                <option value="2" id="blinds">Blinds</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-thing with-label widget uib_w_25 d-margins my" data-uib="jquery_mobile/flip_switch" data-ver="0">
+                                        <label class="narrow-control label-inline">Secure Device</label>
+                                        <select id="secure_device" data-role="slider" class="wide-control" data-theme="b" data-mini="true">
+                                            <option value="off">No</option>
+                                            <option value="on" selected="selected">Yes</option>
+                                        </select>
+                                    </div><span class="uib_shim"></span>
+                                    <a id="connect_device" class="widget uib_w_5 d-margins custom" data-uib="jquery_mobile/button" data-ver="0" data-icon="check" data-role="button" data-position-to="window" data-theme="b">Connect Device</a>
+                                </div>
+                                <!-- /upage-content -->
+                            </div>
+                            <!-- /upage-outer -->
+                        </div>
+                        <!-- /upage -->
+                    </div>
+                </div>
+                <div id="confirm" data-transtion="fade" class="ui-content" data-role="popup" data-theme="b">
+                    <p id="question">Are you sure you want to delete</p>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <a id="yes" class="widget uib_w_5 d-margins custom" data-uib="jquery_mobile/button" data-ver="0" data-icon="check" data-role="button" data-mini="true" data-theme="b" data-rel="back">Yes</a>
+                        </div>
+                        <div class="ui-block-b">
+                            <a id="cancel" class="widget uib_w_5 d-margins custom" data-uib="jquery_mobile/button" data-ver="0" data-icon="delete" data-role="button" data-mini="true" data-theme="b" data-rel="back">No</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /popup -->
+            </div>
+        </div>
+    </body>
+
+</html>
