@@ -60,7 +60,7 @@
             listElem.find('a').addClass('ui-icon-lock ui-btn-icon-right');
         }
         listElem.click(function () {
-            sock = new WebSocket("w://cycurity.cs.iastate.edu:8322
+            //sock = new WebSocket("w://cycurity.cs.iastate.edu:8322
             switch(device.type) {
                 case "1":
                     $('#device_text').hide();
@@ -73,6 +73,12 @@
                     //$('#device_text').show();
                     $('#device_image').hide();
                     //$('#device_text').val(device.device_text);
+                    
+                    /**
+                    *   This is the code for locking and unlocking the door by an POST
+                    *   ajax call. In order to change the communication methed just
+                    *   comment out the coe until the next comment block
+                    **/
                     $('#lock_door_button').bind("click", function () {
                         $.ajax({
                             method: "POST",
@@ -89,8 +95,11 @@
                             alert(deviceName + " is now unlocked");
                         });
                     });
-                    /*if (!(isDeviceSecured(device))) {
-                        alert(device.type);
+                    
+                    /**
+                    *   Comment out up to here
+                    **/
+                    if (!(isDeviceSecured(device))) {
                         //this is a text device so show the text element and hide the image element
                         //$('#device_text').show();
                         $('#device_image').hide();
@@ -118,7 +127,7 @@
                         $('#device_image').attr('src', 'images/lock-it.png');
                         $('#show_device_button').text('Show');
                         $('#show_device_button').buttonMarkup({ icon: "eye" });
-                    }*/
+                    }
                     break;
             }
         });
@@ -504,7 +513,7 @@
 
 	
     $(document).ready( function() {
-        new Oauth2()
+        //new Oauth2()
         register_event_handlers();
     });
         
