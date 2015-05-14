@@ -96,9 +96,6 @@
                         });
                     });
                     
-                    /**
-                    *   Comment out up to here
-                    **/
                     if (!(isDeviceSecured(device))) {
                         //this is a text device so show the text element and hide the image element
                         //$('#device_text').show();
@@ -128,6 +125,9 @@
                         $('#show_device_button').text('Show');
                         $('#show_device_button').buttonMarkup({ icon: "eye" });
                     }
+					/**
+                    *   Comment out up to here
+                    **/
                     break;
             }
         });
